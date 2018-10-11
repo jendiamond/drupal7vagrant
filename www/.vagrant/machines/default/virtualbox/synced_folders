@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant":{"type":"virtualbox","guestpath":"/vagrant","hostpath":"/home/lars/drupal-7.59","disabled":false,"owner":"vagrant","mount_options":["dmode=755,fmode=644","uid=500","gid=500"],"__vagrantfile":true}}}
