@@ -12,7 +12,10 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "centos/6"
+
+  # official centos image has no guest extensions, and vagrant-vbguest
+  # conflicts with vagrant-sshfs
+  config.vm.box = "geerlingguy/centos6"
   config.cache.scope = :box
 
   # Disable automatic box update checking. If you disable this, then
@@ -109,7 +112,7 @@ Vagrant.configure("2") do |config|
      mysql -uvagrant -pvagrant drupal < /vagrant/dump/mindump.sql
    SHELL
 
-  config.vm.synced_folder ".", "/vagrant", type: "virtualbox",
+  config.vm.synced_folder ".", "/vagrant", type: "sshfs",
     owner: "vagrant",
     mount_options: ["dmode=755,fmode=644"]
 end
